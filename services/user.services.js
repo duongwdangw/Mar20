@@ -22,27 +22,27 @@ const getAllUser = async () => {
 
 // Cập nhật người dùng
 const updateUser = async (body) => {
-    const { email, name, dateOfBirth, address, nationality, pass } = body;
-    const updatedUser = await User.findByIdAndUpdate(
-      _id,
-      {
-        email,
-        name,
-        dateOfBirth,
-        address,
-        nationality,
-        pass,
-      },
-      {
-        new: true,
-      }
-    );
-    return updatedUser;
+  const { email, name, dateOfBirth, address, nationality, pass } = body;
+  const updatedUser = await User.findByIdAndUpdate(
+    id,
+    {
+      email,
+      name,
+      dateOfBirth,
+      address,
+      nationality,
+      pass,
+    },
+    {
+      new: true,
+    }
+  );
+  return updatedUser;
 };
 
 // Xóa người dùng
-const deleteUser = async () => {
-  const user = await User.findOneAndDelete();
+const deleteUser = async (id) => {
+  const user = await User.findByIdAndDelete(id);
   return user;
 };
 
